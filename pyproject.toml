@@ -1,0 +1,17 @@
+[project]
+name = "localllmchatbot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "palashj3", email = "palash.jain-cw@otsuka-us.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+localllmchatbot = "localllmchatbot:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
