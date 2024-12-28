@@ -3,7 +3,7 @@ import sys
 
 
 def loguru_setup(
-    logfile="/Users/palashjain/Projects/LLMApps/ROBIN/logs/logfile_{time:YYYY-MM-DD}.log",
+    logfile="./logs/logfile_{time:YYYY-MM-DD}.log",
     rotation="12:00",
 ):
     log_format = "{time} | {level} | {name} | {line} | {message}"
