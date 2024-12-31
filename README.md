@@ -1,5 +1,7 @@
 # LocalLLMChatbot
 
+![Local LLM Chatbot in action](image.png)
+
 Welcome to the LocalLLMChatbot repository! This project allows you to run your own local Large Language Model (LLM) chatbot using an API like Ollama. Below, you'll find information on how to set up and use the application.
 
 ## Overview

@@ -2,6 +2,7 @@ import streamlit as st
 import ollama
 from localllmchatbot.logger_setup import loguru_setup
 from localllmchatbot.LocalModelChat.LocalModelChat import LocalModelChat
+from localllmchatbot.LocalModelChat.utils import stream_parser
 
 # Initialize logger setup
 logger = loguru_setup()
@@ -55,6 +56,11 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
 
     with st.spinner(text="Thinking..."):
-        response = st.session_state.llm._generate_chat_response(prompt=prompt)
+        response = st.session_state.llm._generate_chat_response(prompt=prompt,stream=True)
         with st.chat_message("assistant"):
-            st.markdown(response.message.content)
+            response = st.write_stream(stream=stream_parser(response)) 
+        st.session_state.llm.message_history.append(
+            {"role": "assistant", "content": response}
+        )
+        # with st.chat_message("assistant"):
+        #     st.markdown(response)

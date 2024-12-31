@@ -27,16 +27,10 @@ class LocalModelChat:
             },
         ]
 
-    def _generate_chat_response(self, prompt):
+    def _generate_chat_response(self, prompt, stream=False):
         logger.info(f"Generating chat response for prompt: {prompt}")
         self.message_history.append({"role": "user", "content": prompt})
-        response = chat(
-            model=self.model,
-            messages=self.message_history,
-        )
-        self.message_history.append(
-            {"role": "assistant", "content": response.message.content}
-        )
+        response = chat(model=self.model, messages=self.message_history, stream=stream)
         return response
 
     def _clear_message_history(self):
