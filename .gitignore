@@ -11,4 +11,4 @@ wheels/
 
 # Unnecessary Directories
 .chainlit
-logs/
+*.log
